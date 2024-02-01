@@ -12,8 +12,8 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { validationSchema } from "../schemas/house.schema";
-import { postHouse } from "../api/api";
-// import { animals } from "util";
+import { animals } from "../constants";
+// import { postHouse } from "../api/api";
 
 interface IHouseFormProps {
   onClose: () => void;
@@ -36,10 +36,9 @@ const HouseForm = ({ onClose }: IHouseFormProps) => {
     } as IHouse,
   });
 
-  const animals = ["giraffe", "dolphin", "armadillo", "unicorn"];
-
   const onSubmit = (data: IHouse) => {
-    postHouse(data).then(onClose);
+    // postHouse(data).then(onClose);
+    onClose();
   };
 
   return (
@@ -57,7 +56,6 @@ const HouseForm = ({ onClose }: IHouseFormProps) => {
       <FormControl error={!!errors.animal} fullWidth margin="normal">
         <InputLabel id="type-label">Animal</InputLabel>
         <Select
-          native
           id="animal"
           label="Animal"
           variant="outlined"
@@ -69,7 +67,9 @@ const HouseForm = ({ onClose }: IHouseFormProps) => {
             </MenuItem>
           ))}
         </Select>
-        {errors.animal && <FormHelperText>{errors.animal.message}</FormHelperText>}
+        {errors.animal && (
+          <FormHelperText>{errors.animal.message}</FormHelperText>
+        )}
       </FormControl>
       <TextField
         id="ghost"
@@ -100,9 +100,11 @@ const HouseForm = ({ onClose }: IHouseFormProps) => {
         >
           Cancel
         </Button>
-        <Button type="submit" variant="contained" color="primary">
-          Submit
-        </Button>
+        <Box className="ml-4">
+          <Button type="submit" variant="contained" color="primary">
+            Submit
+          </Button>
+        </Box>
       </Box>
     </form>
   );

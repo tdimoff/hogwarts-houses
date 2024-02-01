@@ -13,7 +13,11 @@ export const validationSchema = yup.object().shape({
     .string()
     .required("Ghost is required")
     .notOneOf(["Arnold"], "Ghost name cannot be Arnold")
-    .test("not-arnold", "Ghost name cannot include Arnold", value => !value || !value.includes("Arnold")),
+    .test(
+      "not-arnold",
+      "Ghost name cannot include Arnold",
+      (value) => !value || !value.includes("Arnold")
+    ),
   commonRoom: yup
     .string()
 });
