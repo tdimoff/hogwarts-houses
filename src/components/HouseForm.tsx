@@ -91,20 +91,24 @@ const HouseForm = ({ onClose }: IHouseFormProps) => {
         error={!!errors.commonRoom}
         helperText={errors.commonRoom?.message}
       />
-      <Box className="flex justify-end mt-4">
-        <Button
-          onClick={() => {
-            reset();
-            onClose();
-          }}
-        >
-          Cancel
-        </Button>
-        <Box className="ml-4">
-          <Button type="submit" variant="contained" color="primary">
-            Submit
+      <Box className="mt-4 md:flex md:justify-end md:space-x-4">
+          <Button
+            onClick={() => {
+              reset();
+              onClose();
+            }}
+            className="w-full md:w-auto py-6"
+          >
+            Cancel
           </Button>
-        </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className="w-full md:w-auto"
+        >
+          Submit
+        </Button>
       </Box>
     </form>
   );

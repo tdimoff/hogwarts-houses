@@ -41,7 +41,7 @@ const HouseTable = () => {
             variant="contained"
             color="primary"
             onClick={() => setIsModalOpen(true)}
-            className="w-full md:w-auto"  
+            className="w-full md:w-auto"
           >
             Create House
           </Button>
