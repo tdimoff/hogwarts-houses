@@ -1,8 +1,4 @@
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-} from "@mui/material";
+import { Dialog, DialogTitle, DialogContent } from "@mui/material";
 import HouseForm from "./HouseForm";
 
 interface ICreateHouseModalProps {
@@ -13,7 +9,7 @@ interface ICreateHouseModalProps {
 const CreateHouseModal = ({ isOpen, onClose }: ICreateHouseModalProps) => {
   return (
     <Dialog open={isOpen} onClose={onClose}>
-      <DialogTitle>Create House</DialogTitle>
+      <DialogTitle className="flex justify-center">Create House</DialogTitle>
       <DialogContent>
         <HouseForm onClose={onClose} />
       </DialogContent>

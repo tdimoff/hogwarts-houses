@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchHouses } from "../api/api";
 import { IHouse } from "../interfaces/IHouse.interface";
-import { Container, Paper, TextField } from "@mui/material";
+import { Button, Container, Paper, TextField, Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import CreateHouseModal from "./CreateHouseModal";
 
@@ -34,12 +34,11 @@ const HouseTable = () => {
   ];
 
   return (
-    <Container maxWidth="md" style={{ height: 400, marginTop: 20 }}>
-      <Paper
-        elevation={4}
-        style={{ height: "100%", width: "100%", padding: "20px" }}
-        className="p-4"
-      >
+    <Container maxWidth="md" className="mt-6">
+      <Paper elevation={4} className="p-6">
+        <Typography variant="h4" className="text-center">
+            Hogwarts Houses
+        </Typography>
         <TextField
           id="search"
           label="Filter by Animal"
@@ -48,15 +47,18 @@ const HouseTable = () => {
           fullWidth
           margin="normal"
           onChange={handleFilterChange}
+          className="mt-4"
         />
-        <DataGrid
-          rows={filteredHouses}
-          columns={columns}
-          //   pageSize={50}
-          // rowsPerPageOptions={[5]}
-          checkboxSelection
-          className="p-4"
-        />
+        <DataGrid rows={filteredHouses} columns={columns} className="p-4" />
+        <Box className="flex justify-end mt-6">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Create House
+          </Button>
+        </Box>
         <CreateHouseModal isOpen={isModalOpen} onClose={handleCloseModal} />
       </Paper>
     </Container>

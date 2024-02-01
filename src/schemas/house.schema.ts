@@ -8,8 +8,7 @@ export const validationSchema = yup.object().shape({
     .max(20, "Name must be at most 20 characters"),
   animal: yup
     .string()
-    .required("Animal is required")
-    .oneOf(["giraffe", "dolphin", "armadillo", "unicorn"], "Invalid animal selection"),
+    .required("Animal is required"),
   ghost: yup
     .string()
     .required("Ghost is required")
