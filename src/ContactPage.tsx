@@ -16,11 +16,16 @@ const ContactPage = () => {
           Contact Page
         </Typography>
         <Grid container spacing={1}>
-          <Grid item md={6}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            className="flex justify-center items-center"
+          >
             <img src="/cornelius.png" alt="Cornelius Fudge" width="350" />
           </Grid>
           <Grid item md={6}>
-            <Typography variant="h6" className="py-2">
+            <Typography variant="h6" className="pb-2">
               Name: {contactData.name}
             </Typography>
             <Typography variant="h6" className="py-2">
